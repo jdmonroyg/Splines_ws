@@ -22,7 +22,8 @@ Complete la tabla:
 
 | Integrante | github nick |
 |------------|-------------|
-|            |             |
+|      Jesus David Monroy Garces      |     jdmonrog      |
+|      Helmer Andres Avendaño Vargas      |     helmeraac        |
 
 ## Entrega
 
