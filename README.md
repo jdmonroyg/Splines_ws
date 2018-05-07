@@ -24,7 +24,10 @@ Complete la tabla:
 |------------|-------------|
 |      Jesus David Monroy Garces      |     jdmonrog      |
 |      Helmer Andres Avendaño Vargas      |     helmeraac        |
-
+## Referencias
+* [Curvas de Bezier](https://es.wikipedia.org/wiki/Curva_de_B%C3%A9zier)
+* [Triangulo de pascal](https://es.wikipedia.org/wiki/Tri%C3%A1ngulo_de_Pascal)
+* [Curvas en general (hermite y natural)](http://www.inf-cr.uclm.es/www/cglez/downloads/docencia/AC/splines.pdf)
 ## Entrega
 
 * Modo de entrega: Haga [fork](https://help.github.com/articles/fork-a-repo/) de la plantilla e informe la url del repo en la hoja *urls* de la plantilla compartida (una sola vez por grupo). Plazo: 6/5/18 a las 24h.
