@@ -74,8 +74,12 @@ void draw() {
   // draw curve according to control polygon an mode
   // To retrieve the positions of the control points do:
   List<Vector> points = new ArrayList<Vector>();
+  List<PVector> pointsHermite = new ArrayList<PVector>();
   for(Frame frame : interpolator.keyFrames()){
     points.add(frame.position());
+    PVector vector = new PVector(frame.position().x(), frame.position().y(), frame.position().z());
+    pointsHermite.add(vector);
+
   }
   
   if (mode==0){
@@ -88,10 +92,18 @@ void draw() {
     text("Bezier Degree7", -150, -150);
   }
   if (mode==3){
-    text("Bezier", -150, -150);
+    text("Bezier Degree3", -150, -150);
   }
   
   switch(mode) {
+  case 0:
+    CubicaNatural cn = new CubicaNatural(points, 500);
+    cn.drawcn();
+  break;
+  case 1:
+    HermiteCurve hermite = new HermiteCurve(pointsHermite);
+    hermite.drawHermiteCurve();
+  break;
   case 2:
     BezierGrade7 b7 = new BezierGrade7(points, 2000);
     b7.drawbc();
