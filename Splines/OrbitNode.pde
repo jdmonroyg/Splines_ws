@@ -31,9 +31,9 @@ public class OrbitNode extends Node {
   // behavior is here
   @Override
   public void interact(frames.input.Event event) {
-    if (event.shortcut().matches(new Shortcut(RIGHT)))
-      translate(event);
     if (event.shortcut().matches(new Shortcut(LEFT)))
+      translate(event);
+    if (event.shortcut().matches(new Shortcut(RIGHT)))
       rotate(event);
     if (event.shortcut().matches(new Shortcut(CENTER)))
       rotate(event);

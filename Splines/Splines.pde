@@ -13,6 +13,8 @@ import frames.input.*;
 import frames.primitives.*;
 import frames.core.*;
 import frames.processing.*;
+import java.util.List;
+
 
 // global variables
 // modes: 0 natural cubic spline; 1 Hermite;
@@ -28,7 +30,7 @@ boolean drawGrid = true, drawCtrl = true;
 String renderer = P3D;
 
 void setup() {
-  size(800, 800, renderer);
+  size(600, 600, renderer);
   scene = new Scene(this);
   eye = new OrbitNode(scene);
   eye.setDamping(0);
@@ -43,7 +45,8 @@ void setup() {
   //interpolator = new Interpolator(scene);
 
   // Using OrbitNodes makes path editable
-  for (int i = 0; i < 8; i++) {
+ 
+  for (int i = 0; i <8 ; i++) {
     Node ctrlPoint = new OrbitNode(scene);
     ctrlPoint.randomize();
     interpolator.addKeyFrame(ctrlPoint);
@@ -51,6 +54,7 @@ void setup() {
 }
 
 void draw() {
+  println(mode);
   background(175);
   if (drawGrid) {
     stroke(255, 255, 0);
@@ -69,8 +73,34 @@ void draw() {
   // implement me
   // draw curve according to control polygon an mode
   // To retrieve the positions of the control points do:
-  // for(Frame frame : interpolator.keyFrames())
-  //   frame.position();
+  List<Vector> points = new ArrayList<Vector>();
+  for(Frame frame : interpolator.keyFrames()){
+    points.add(frame.position());
+  }
+  
+  if (mode==0){
+    text("Natural cubic", -150, -150);
+  }
+  if (mode==1){
+    text("Hermite", -150, -150);
+  }
+  if (mode==2){
+    text("Bezier Degree7", -150, -150);
+  }
+  if (mode==3){
+    text("Bezier", -150, -150);
+  }
+  
+  switch(mode) {
+  case 2:
+    BezierGrade7 b7 = new BezierGrade7(points, 2000);
+    b7.drawbc();
+  break;
+  case 3:
+    BezierCubic bc = new BezierCubic(points, 2000);
+    bc.drawbc();
+  break;
+  }
 }
 
 void keyPressed() {
